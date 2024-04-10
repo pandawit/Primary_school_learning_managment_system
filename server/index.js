@@ -1,6 +1,8 @@
 const express= require("express");
 const mongoose=require("mongoose");
 const courseRoutes=require("./src/routes/courseRoute.js")
+const studentRoutes=require("./src/routes/studentRoute.js")
+const assesmentRoutes=require("./src/routes/assesmentRoute.js")
 const bodyParser=require("body-parser");
 
 const app=express();
@@ -18,7 +20,12 @@ mongoose.connect('mongodb://localhost:27017/pslms')
     .catch(err => console.error('Error connecting to MongoDB:', err));
 
     app.use("/course",courseRoutes)
+    app.use("/student",studentRoutes)
+    app.use("/assesment",assesmentRoutes)
     const PORT = process.env.PORT || 3000;
         app.listen(PORT, () => {
                 console.log(`Server started on port ${PORT}`);
+    
 });
+
+
