@@ -4,7 +4,10 @@ const courseRoutes = require("./src/routes/courseRoute.js");
 const studentRoutes = require("./src/routes/studentRoute.js");
 const assesmentRoutes = require("./src/routes/assesmentRoute.js");
 const teacherRoutes = require("./src/routes/teacherRoute.js");
-const allCourseRoutes = require("./src/routes/allcourseRoute.js"); // Import the new route
+const allCourseRoutes = require("./src/routes/allcourseRoute.js"); 
+const allStudentRoutes = require("./src/routes/allStudentRoute.js"); 
+// const accountRoutes = require("./src/routes/accoutRoute.js"); 
+// const simultaneousRoutes = require('./src/routes/simultaneousRoute.js');
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -24,7 +27,11 @@ app.use("/course", courseRoutes);
 app.use("/student", studentRoutes);
 app.use("/assesment", assesmentRoutes);
 app.use("/teacher", teacherRoutes);
-app.use("/data", allCourseRoutes); // Add the new route
+app.use("/data", allCourseRoutes); 
+app.use("/student",allStudentRoutes);
+// app.use("/account", accountRoutes);
+// app.use("/course", simultaneousRoutes);
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
