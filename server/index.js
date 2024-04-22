@@ -2,11 +2,15 @@ const express = require("express");
 const mongoose = require("mongoose");
 const courseRoutes = require("./src/routes/courseRoute.js");
 const studentRoutes = require("./src/routes/studentRoute.js");
-const assesmentRoutes = require("./src/routes/assesmentRoute.js");
+const assessmentRoutes = require("./src/routes/assessmentRoute.js");
 const teacherRoutes = require("./src/routes/teacherRoute.js");
 const allCourseRoutes = require("./src/routes/allcourseRoute.js"); 
 const allStudentRoutes = require("./src/routes/allStudentRoute.js"); 
 const allTeacherRoutes = require("./src/routes/allteacherRoute.js"); 
+const allAssessmentRoutes = require("./src/routes/allassessmentRoute.js"); 
+
+
+
 
 
 // const accountRoutes = require("./src/routes/accoutRoute.js"); 
@@ -28,11 +32,14 @@ mongoose.connect("mongodb://localhost:27017/pslms")
 
 app.use("/course", courseRoutes);
 app.use("/student", studentRoutes);
-app.use("/assesment", assesmentRoutes);
+app.use("/assessment", assessmentRoutes);
 app.use("/teacher", teacherRoutes);
 app.use("/data", allCourseRoutes); 
 app.use("/student",allStudentRoutes);
 app.use("/teacher",allTeacherRoutes);
+app.use("/assessment",allAssessmentRoutes);
+
+
 
 // app.use("/account", accountRoutes);
 // app.use("/course", simultaneousRoutes);
