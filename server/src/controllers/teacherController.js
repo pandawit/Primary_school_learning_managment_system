@@ -2,25 +2,24 @@ const Teacher = require('./../models/teacherModel');
 
 const submitTeacher = async (req, res) => {
   try {
-    const {image,teach_id,teachF_name, teachS_name,teachL_name,date,age,gender,email,city
-    ,Hnumber,nationality,fieldOfstudy,educationLev,profession,kebele} = req.body;
+    const {
+     teacherID,firstName,secondName,lastName,birthDate,age,gender,email,city,houseNumber,nationality,fieldOfStudy,educationLevel,profession,kebele} = req.body;
     
     const teacher = new Teacher({
-       // i didn't put the file attribute in here because i can't find file data type
-       image:image,
-       teach_id: teach_id,
-       teachF_name: teachF_name,
-       teachS_name: teachS_name,
-       teachL_name: teachL_name,
-       date: date,
+    
+       teacherID: teacherID,
+       firstName: firstName,
+       secondName: secondName,
+       lastName: lastName,
+       birthDate: birthDate,
        age: age,
        gender: gender,
        email: email,
        city: city,
-       Hnumber: Hnumber,
+       houseNumber: houseNumber,
        nationality: nationality,
-       fieldOfstudy: fieldOfstudy,
-       educationLev: educationLev,
+       fieldOfStudy: fieldOfStudy,
+       educationLevel: educationLevel,
        profession: profession,
        kebele: kebele 
     });
@@ -29,7 +28,7 @@ const submitTeacher = async (req, res) => {
 
     res.status(201).json({ message: 'Teacher registered successfully' });
   } catch (error) {
-    console.error('Error registration teacher:', error.message); 
+    console.error('Error registering teacher:', error.message); 
     res.status(500).json({ error: 'Server error', message: error.message });
   }
 };

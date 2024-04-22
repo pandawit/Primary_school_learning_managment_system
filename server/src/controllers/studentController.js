@@ -5,7 +5,7 @@ const submitStudent = async (req, res) => {
     const { studentID,firstName,secondName,lastName,birthDate,age,gender,grade,pFirstName,pLastName,pPhoneNumber,pWork,pEmail,city,kebele} = req.body;
     
     const student = new Student({
-       // i didn't put the file attribute in here because i can't find file data type
+      
         studentID: studentID,
         firstName: firstName,
         secondName: secondName,

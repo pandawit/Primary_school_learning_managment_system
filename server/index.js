@@ -6,6 +6,9 @@ const assesmentRoutes = require("./src/routes/assesmentRoute.js");
 const teacherRoutes = require("./src/routes/teacherRoute.js");
 const allCourseRoutes = require("./src/routes/allcourseRoute.js"); 
 const allStudentRoutes = require("./src/routes/allStudentRoute.js"); 
+const allTeacherRoutes = require("./src/routes/allteacherRoute.js"); 
+
+
 // const accountRoutes = require("./src/routes/accoutRoute.js"); 
 // const simultaneousRoutes = require('./src/routes/simultaneousRoute.js');
 const bodyParser = require("body-parser");
@@ -29,6 +32,8 @@ app.use("/assesment", assesmentRoutes);
 app.use("/teacher", teacherRoutes);
 app.use("/data", allCourseRoutes); 
 app.use("/student",allStudentRoutes);
+app.use("/teacher",allTeacherRoutes);
+
 // app.use("/account", accountRoutes);
 // app.use("/course", simultaneousRoutes);
 
