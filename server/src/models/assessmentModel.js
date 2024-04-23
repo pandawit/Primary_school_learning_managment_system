@@ -5,6 +5,10 @@ const assessmentSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    subject: {
+        type: String,
+        required: true,
+    },
     test1: {
         type: Number,
         required: true,

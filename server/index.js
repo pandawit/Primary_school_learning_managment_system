@@ -8,6 +8,9 @@ const allCourseRoutes = require("./src/routes/allcourseRoute.js");
 const allStudentRoutes = require("./src/routes/allStudentRoute.js"); 
 const allTeacherRoutes = require("./src/routes/allteacherRoute.js"); 
 const allAssessmentRoutes = require("./src/routes/allassessmentRoute.js"); 
+const attendanceRoutes = require("./src/routes/attendanceRoute.js"); 
+const allattendanceRoutes = require("./src/routes/allattendanceRoute.js");
+
 
 
 
@@ -38,6 +41,9 @@ app.use("/data", allCourseRoutes);
 app.use("/student",allStudentRoutes);
 app.use("/teacher",allTeacherRoutes);
 app.use("/assessment",allAssessmentRoutes);
+app.use("/attendance",attendanceRoutes);
+app.use("/attendance", allattendanceRoutes);
+
 
 
 

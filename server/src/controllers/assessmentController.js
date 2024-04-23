@@ -3,11 +3,12 @@ const Assessment = require('../models/assessmentModel');
 const submitAssessment = async (req, res) => {
     try {
         // Extract form data from the request body
-        const { studentID, test1, test2, midExam, finalExam } = req.body;
+        const { studentID, subject, test1, test2, midExam, finalExam } = req.body;
         
         // Create a new assessment document with the data
         const assessment = new Assessment({
             studentID: studentID,
+            subject: subject,
             test1: test1,
             test2: test2,
             midExam: midExam,
