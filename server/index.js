@@ -10,6 +10,9 @@ const allTeacherRoutes = require("./src/routes/allteacherRoute.js");
 const allAssessmentRoutes = require("./src/routes/allassessmentRoute.js"); 
 const attendanceRoutes = require("./src/routes/attendanceRoute.js"); 
 const allattendanceRoutes = require("./src/routes/allattendanceRoute.js");
+const userRoutes = require("./src/routes/userRoute.js");
+const userteachRoutes = require("./src/routes/userteachRoute.js");
+
 
 
 
@@ -43,6 +46,9 @@ app.use("/teacher",allTeacherRoutes);
 app.use("/assessment",allAssessmentRoutes);
 app.use("/attendance",attendanceRoutes);
 app.use("/attendance", allattendanceRoutes);
+app.use("/user", userRoutes);
+app.use("/userteach", userteachRoutes);
+
 
 
 

@@ -1,38 +1,70 @@
-const Teacher = require('./../models/teacherModel');
+const Teacher = require('../models/teacherModel');
+const Userteach = require('../models/userteachModel');
 
 const submitTeacher = async (req, res) => {
-  try {
-    const {
-     teacherID,firstName,secondName,lastName,birthDate,age,gender,email,city,houseNumber,nationality,fieldOfStudy,educationLevel,profession,kebele} = req.body;
-    
-    const teacher = new Teacher({
-    
-       teacherID: teacherID,
-       firstName: firstName,
-       secondName: secondName,
-       lastName: lastName,
-       birthDate: birthDate,
-       age: age,
-       gender: gender,
-       email: email,
-       city: city,
-       houseNumber: houseNumber,
-       nationality: nationality,
-       fieldOfStudy: fieldOfStudy,
-       educationLevel: educationLevel,
-       profession: profession,
-       kebele: kebele 
-    });
-    
-    await teacher.save();
+    try {
+        // Extract data from the request body
+        const {
+            teacherID,
+            firstName,
+            secondName,
+            lastName,
+            birthDate,
+            age,
+            gender,
+            email,
+            city,
+            houseNumber,
+            nationality,
+            fieldOfStudy,
+            educationLevel,
+            profession,
+            kebele
+        } = req.body;
 
-    res.status(201).json({ message: 'Teacher registered successfully' });
-  } catch (error) {
-    console.error('Error registering teacher:', error.message); 
-    res.status(500).json({ error: 'Server error', message: error.message });
-  }
+        // Create a new teacher entry
+        const teacher = new Teacher({
+            teacherID,
+            firstName,
+            secondName,
+            lastName,
+            birthDate,
+            age,
+            gender,
+            email,
+            city,
+            houseNumber,
+            nationality,
+            fieldOfStudy,
+            educationLevel,
+            profession,
+            kebele
+        });
+
+        // Save the teacher data in the Teacher model
+        await teacher.save();
+
+        
+        const role = "Teacher";
+        // Create a new Userteach entry with teacher's ID, first name, and role
+        const userteach = new Userteach({
+            teacherID,
+            firstName,
+            role
+        });
+
+        // Save the userteach data in the Userteach model
+        await userteach.save();
+
+        // Send a success response
+        res.status(201).json({ message: 'Teacher registered successfully' });
+    } catch (error) {
+        // Handle any errors
+        console.error('Error registering teacher:', error.message);
+        res.status(500).json({ error: 'Server error', message: error.message });
+    }
 };
 
 module.exports = {
-    submitTeacher 
+    submitTeacher
 };
